@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-02-01T14:21:44 EST" name="Suite" finished-at="2026-02-01T14:21:47 EST" duration-ms="2609">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.test.run.Runner@60d8c9b7]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-02-01T14:21:44 EST" name="Test" finished-at="2026-02-01T14:21:47 EST" duration-ms="2609">
+      <class name="com.test.run.Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.test.run.Runner@60d8c9b7]" started-at="2026-02-01T14:21:44 EST" name="setUpClass" finished-at="2026-02-01T14:21:45 EST" duration-ms="272" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7282af25]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.test.run.Runner@60d8c9b7]" started-at="2026-02-01T14:21:45 EST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-01T14:21:46 EST" duration-ms="1768" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["As a user, i can get the data from my application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["API HTTP CRUD function test"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.test.run.Runner@60d8c9b7]" started-at="2026-02-01T14:21:46 EST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-01T14:21:47 EST" duration-ms="176" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["As a user, i can send or post data from my application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["API HTTP CRUD function test"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.test.run.Runner@60d8c9b7]" started-at="2026-02-01T14:21:47 EST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-01T14:21:47 EST" duration-ms="159" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["As a user, i can update or put data from my application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["API HTTP CRUD function test"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.test.run.Runner@60d8c9b7]" started-at="2026-02-01T14:21:47 EST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-01T14:21:47 EST" duration-ms="143" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["As a user, i can remove the data from my application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["API HTTP CRUD function test"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.test.run.Runner@60d8c9b7]" started-at="2026-02-01T14:21:47 EST" name="tearDownClass" finished-at="2026-02-01T14:21:47 EST" duration-ms="62" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.test.run.Runner -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

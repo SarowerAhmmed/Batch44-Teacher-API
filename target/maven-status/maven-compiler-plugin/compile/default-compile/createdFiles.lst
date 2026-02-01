@@ -1,0 +1,5 @@
+com\api\curd\function\Stepdef.class
+com\api\curd\function\ReadData.class
+com\api\curd\function\RemoveData.class
+com\api\curd\function\Update.class
+com\api\curd\function\CreateDataSenddata.class

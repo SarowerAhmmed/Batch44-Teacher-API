@@ -1,0 +1,16 @@
+{
+  "employeeId": "EMP001",
+  "name": "Sarower",
+  "skills": ["Java", "Selenium", "RestAssured"],
+  "salary": 8000,
+  "projects": [
+    {
+      "projectId": "P101",
+      "projectName": "Banking App"
+    },
+    {
+      "projectId": "P102",
+      "projectName": "Trading Platform"
+    }
+  ]
+}
