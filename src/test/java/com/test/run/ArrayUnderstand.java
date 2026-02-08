@@ -1,39 +1,37 @@
 package com.test.run;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class ArrayUnderstand {
 	
 	public static void main(String[] args) {
-		//K,V
-		Map<String,Integer> myMap = new HashMap<>();//Map = interface ==> instantiation =Y/N =N
-		// Map relation = Hash Map, LinkedHashMap,Tree map
-		//HashMap = no order , faster
-		//LinkedHashMap = insertion order
-		//TreeMap = ASC
-		myMap.put("Salary", 5000);
-		myMap.put("ID", 101);
-		
-		System.out.println(myMap);
-		// map looping
-		// basic for loop = not good for(start;end:i++)
-		//Map Can use Enhance for loop = for(DataType anyName: Collection/ArrayName)
-		
-//		  for (Entry<String, Integer> i:myMap.entrySet()) {
-//	            
-//	           System.out.println(i.getKey());
-//	           System.out.println(i.getValue());
-//	        }
-		//best option = Java 8 forEach loop
-		  
-		myMap.forEach((k,v)->{
-			//code
-			System.out.println(k);
-			System.out.println(v);
-		});
-		
+	Integer [] myArray = {2,3,5,2,6,7,6};
+	
+	Set<Integer> mySet= new LinkedHashSet<>(Arrays.asList(myArray));
+	System.out.println(mySet);
+	
+	Object[] nodup =Arrays.stream(myArray).distinct().toArray();
+	System.out.println(Arrays.toString(nodup));
+	
+	String input ="Sarower".toLowerCase();
+	for(int i=0;i<input.length();i++) {
+		boolean isDup=false;
+		for(int j=i+1;j<input.length();j++) {
+			//System.out.println("Index = "+j);
+		if(input.charAt(i)==input.charAt(j)) {
+			
+			isDup=true;
+			break;
+		}
+			
+		}
+		if(isDup) {
+			System.out.println("No dup No/unique ="+input.charAt(i));
+			
+		}
+	}
 	}
 
 }

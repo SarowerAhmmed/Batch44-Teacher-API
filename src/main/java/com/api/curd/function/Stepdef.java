@@ -13,141 +13,76 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class Stepdef {
-	Response resObj;
-	Response resObjdelete;
-	Response resPost;
-	Response resPut;
 
-	@Given("put get url")
-	public void put_get_url() {
+	Response resp;
 
+	@Given("setup post UPL & file json file")
+	public void setup_post_upl_file_json_file() {
+		File jsonData = new File("./src/main/resources/employee.json");
+		String baseUrl = "https://httpbin.org/post";
 	}
 
-	@When("send get request & response")
-	public void send_get_request_response() {
-		resObj = RestAssured.get("https://httpbin.org/get");
+	@When("send request and get response for post")
+	public void send_request_and_get_response_for_post() {
 
+		SimpleWayPost obj = new SimpleWayPost();
+		resp = obj.getPostSetup();
 	}
 
-	@Then("validate get data with test cases")
-	public void validate_get_data_with_test_cases() {
-		// Test cases & Validation
-		SoftAssert sf = new SoftAssert();
-		sf.assertTrue(resObj.statusCode() == 200);// int/double eqaul == & String : equals()
-		sf.assertTrue(resObj.time() < 2000);
-		sf.assertTrue(resObj.contentType().contains("json"));
-		sf.assertTrue(!resObj.body().asString().equals(null));
-
-		sf.assertTrue(resObj.body().asString().contains("Host"));
-		// value = json parser = JsonPath
-		JsonPath jp = resObj.jsonPath();
-		sf.assertTrue(jp.get("headers.Host").equals("httpbin.org"));
-		sf.assertAll();
-
+	@Then("valide API basic valition")
+	public void valide_api_basic_valition() {
+		SimpleWayPost obj = new SimpleWayPost();
+		obj.basicValidation(resp);
 	}
 
-	@Given("put post url")
-	public void put_post_url() {
-
+	@Then("validate json key {string}")
+	public void validate_json_key(String key) {
+		System.out.println("Key from json =" + key);
+		SimpleWayPost obj = new SimpleWayPost();
+		obj.getKeyValidation(resp, key);
 	}
 
-	@When("send post request and get response")
-	public void send_post_request_and_get_response() {
-		// request
-		File file = new File("./src/main/resources/Simple.json");
-		RequestSpecification rsObjPost = RestAssured.given();
-		rsObjPost.body(file);
+	@Then("validate json value {string}")
+	public void validate_json_value(String exampleTablevalue) {
 
-		// Response
-		resPost = rsObjPost.post("https://httpbin.org/post");
+		System.out.println("Feature file value = " + exampleTablevalue);
+		//simple value
+		SimpleWayPost obj = new SimpleWayPost();
+		if (exampleTablevalue.contains("EMP001") || exampleTablevalue.contains("David")
+				|| exampleTablevalue.contains("8000")) {
+			if (exampleTablevalue.contains("EMP001")) {
+				obj.getSimpleValueValidation(resp, "json.employeeId", exampleTablevalue);
+			}
+			if (exampleTablevalue.contains("David")) {
+				obj.getSimpleValueValidation(resp, "json.name", exampleTablevalue);
+			}
+			if (exampleTablevalue.contains("8000")) {
+				obj.getSimpleValueValidation(resp, "json.salary", exampleTablevalue);
+			}
 
-	}
-
-	@Then("validate post data with test cases")
-	public void validate_post_data_with_test_cases() {
-		// Test cases & Validation
-		SoftAssert sf = new SoftAssert();
-		sf.assertTrue(resPost.statusCode() == 200);// int/double eqaul == & String : equals()
-		sf.assertTrue(resPost.time() < 2000);
-		sf.assertTrue(resPost.contentType().contains("json"));
-		sf.assertTrue(!resPost.body().asString().equals(null));
-
-		sf.assertTrue(resPost.body().asString().contains("employeeId"));
-		sf.assertTrue(resPost.body().asString().contains("name"));
-		// value = json parser = JsonPath
-		JsonPath jp = resPost.jsonPath();
-		sf.assertTrue(jp.get("json.employeeId").equals("EMP001"));
-		sf.assertTrue(jp.get("json.name").equals("David"));
-		sf.assertAll();
-
-	}
-
-	@Given("put put url")
-	public void put_put_url() {
-
-	}
-
-	@When("send put request and get response")
-	public void send_put_request_and_get_response() {
-
-		// request
-		File file = new File("./src/main/resources/update.json");
-		RequestSpecification rsObjPut = RestAssured.given();
-		rsObjPut.body(file);
-
-		// Response
-		resPut = rsObjPut.put("https://httpbin.org/put");
-	}
-
-	@Then("validate put data with test cases")
-	public void validate_put_data_with_test_cases() {
-
-		// Test cases & Validation
-		SoftAssert sf = new SoftAssert();
-		sf.assertTrue(resPut.statusCode() == 200);// int/double eqaul == & String : equals()
-		sf.assertTrue(resPut.time() < 2000);
-		sf.assertTrue(resPut.contentType().contains("json"));
-		sf.assertTrue(!resPut.body().asString().equals(null));
-
-		sf.assertTrue(resPut.body().asString().contains("employeeId"));
-		sf.assertTrue(resPut.body().asString().contains("name"));
-		// value = json parser = JsonPath
-		JsonPath jp = resPut.jsonPath();
-		sf.assertTrue(jp.get("json.employeeId").equals("EMP002"));
-		sf.assertTrue(jp.get("json.name").equals("Jhon"));
-		sf.assertAll();
-	}
-
-	@Given("put delete url")
-	public void put_delete_url() {
-
-	}
-
-	@When("send delete request & response")
-	public void send_delete_request_response() {
-		resObjdelete = RestAssured.delete("https://httpbin.org/delete");
-
-	}
-
-	@Then("validate delete data with test cases")
-	public void validate_delete_data_with_test_cases() {
-		// Test cases & Validation
-		SoftAssert sf = new SoftAssert();
-		sf.assertTrue(resObjdelete.statusCode() == 200);// int/double eqaul == & String : equals()
-		sf.assertTrue(resObjdelete.time() < 2000);
-		sf.assertTrue(resObjdelete.contentType().contains("json"));
-		sf.assertTrue(!resObjdelete.body().asString().equals(null));
-
-		sf.assertTrue(resObjdelete.body().asString().contains("json"));
-		// value = json parser = JsonPath
-		JsonPath jp = resObjdelete.jsonPath();
-
-		try {
-			sf.assertTrue(jp.get("json").toString().equals("null"));
-		} catch (Exception e) {
 		}
-
-		sf.assertAll();
-
+		
+		//Array
+		if (exampleTablevalue.contains("Selenium")) {//array
+			obj.getJsonDataAsArray(resp, "json.skills", 1, exampleTablevalue);
+		}
+		//Map
+		if (exampleTablevalue.contains("John")) {//Map
+			obj.getjsonMapData(resp, "json.data", "name", exampleTablevalue);
+			
+		}
+		//Array+map
+		if (exampleTablevalue.contains("Banking App") || exampleTablevalue.contains("101")) {//Array +Map
+			if(exampleTablevalue.contains("Banking App")) {
+				obj.getjsonDatainArrayAndMap(resp, "json.projects", 0, "projectName", exampleTablevalue);
+				
+			}
+			if(exampleTablevalue.contains("101")) {
+				obj.getjsonDatainArrayAndMap(resp, "json.projects", 0, "projectId", exampleTablevalue);
+			}
+			
+			
+		}
 	}
+
 }

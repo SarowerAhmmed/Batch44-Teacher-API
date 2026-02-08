@@ -1,16 +1,15 @@
 {
   "employeeId": "EMP001",
   "name": "David",
-  "skills": ["Java", "Selenium", "RestAssured"],
   "salary": 8000,
+  "skills": ["Java", "Selenium", "RestAssured"],
+  "data": {"id": 2,"email": "test@test.com","name": "John" },
   "projects": [
     {
-      "projectId": "P101",
-      "projectName": "Banking App"
+      "projectId": "P101", "projectName": "Banking App"
     },
     {
-      "projectId": "P102",
-      "projectName": "Trading Platform"
+      "projectId": "P102","projectName": "Trading Platform"
     }
   ]
 }
